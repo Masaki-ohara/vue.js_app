@@ -1,32 +1,37 @@
 <template>
   <div>
    <LikeHeader>
-     <h2>みなさん</h2>
-     <template v-slot:title>
-       <h2>こんにちは</h2>
-     </template>
      <h3>はじめまして</h3>
-      <template v-slot:number>
-        <p>{{number}}</p>
-      </template>
-      <p>宜しくお願いします</p>
+     <!-- <template v-slot:[title]></template> -->
    </LikeHeader>
    <LikeNumber :total-number="number" @my-click="incrementNumber"></likeNumber>
-   <LikeNumber :total-number="number"></likeNumber>
+   <button @click="currentComponent ='Home'">Home</button>
+   <button @click="currentComponent = 'About'">About</button>
+   <keep-alive>
+     <component v-bind:is="'currentComponent'"></component>
+     <About v-if="currentComponent === 'About'"></About>
+     <Home v-if="currentComponent === 'Home'"></Home>
+   </keep-alive>
   </div>
 </template>
 
 <script>
 import LikeHeader from "./components/LikeHeader.vue";
+import About from "./components/About.vue";
+import Home from "./components/Home.vue";
+
 
 export default {
   data() {
     return {
-      number: 10
+      number: 10,
+      currentComponent: "Home"
     };
   },
   components: {
-    LikeHeader
+    LikeHeader,
+    About,
+    Home
   },
   methods: {
     incrementNumber(value) {
