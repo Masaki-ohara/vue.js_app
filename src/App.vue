@@ -1,6 +1,10 @@
 l<template>
   <div>
    <LikeHeader>
+     <button @click="show = !show">切り替え</button>
+     <transition name="fade">
+       <p v-if="show">hello</p>
+     </transition>
      <h3>はじめまして</h3>
      <!-- <template v-slot:[title]></template> -->
    </LikeHeader>
@@ -94,6 +98,7 @@ import EventTitle from "./components/EventTitle.vue";
 export default {
   data() {
     return {
+      show: true,
       number: 10,
       currentComponent: "Home",
       locations: ["東京", "大阪", "名古屋"],
@@ -122,4 +127,20 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.fade-enter {}
+.fade-enter-active {}
+.fade-enter-to {}
+.fade-leve {}
+.fade-leve-active {}
+.fade-leve-to {}
+
+.maon {
+  width: 70%;
+  margin: auto;
+  padding-top: 5rem;
+  text-align: center;
+}
+</style>
 
