@@ -129,12 +129,30 @@ export default {
 </script>
 
 <style scoped>
-.fade-enter {}
-.fade-enter-active {}
-.fade-enter-to {}
-.fade-leve {}
-.fade-leve-active {}
-.fade-leve-to {}
+.fade-enter {
+  /* 現れる最初の状態 */
+  opacity: 0;
+}
+.fade-enter-active {
+  /* 現れる時のトランジションの状態 */
+  transition: opacity 3s;
+}
+.fade-enter-to {
+  /* 現れる時の最後の状態 */
+  opacity: 1;
+}
+.fade-leve {
+/* 消える時の最初の状態 */
+opacity: 1;
+}
+.fade-leve-active {
+  /* 消える時のトランジションの状態  */
+  transition: opacity 3;
+}
+.fade-leve-to {
+  /* 消える時の最後の状態  */
+  opacity: 0;
+}
 
 .maon {
   width: 70%;
